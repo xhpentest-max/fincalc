@@ -1,7 +1,11 @@
 import { Calculator } from "lucide-react"
 import Link from "next/link"
 
+import { CALCULATORS, FEATURES_LINK } from "@/lib/site-nav"
+
 import { Separator } from "@/components/ui/separator"
+
+const nav = [FEATURES_LINK, ...CALCULATORS]
 
 export function SiteFooter() {
   return (
@@ -16,21 +20,15 @@ export function SiteFooter() {
           Estimates only — always confirm figures with a lender or adviser.
         </p>
         <nav className="flex items-center gap-4 text-sm">
-          <Link href="#features" className="text-muted-foreground hover:text-foreground">
-            Features
-          </Link>
-          <Link
-            href="#mortgage"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Mortgage
-          </Link>
-          <Link
-            href="#compound-interest"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            Compound interest
-          </Link>
+          {nav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </footer>

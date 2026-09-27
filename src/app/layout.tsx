@@ -15,7 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FinCalc — Mortgage & compound interest calculators",
+  // `default` is required alongside a template, and keeps the homepage title
+  // unchanged since it defines no title of its own.
+  title: {
+    default: "FinCalc — Mortgage & compound interest calculators",
+    template: "%s | FinCalc",
+  },
   description:
     "Free calculators for mortgage repayments and compound interest, with year-by-year amortisation schedules and real-returns projections.",
 };

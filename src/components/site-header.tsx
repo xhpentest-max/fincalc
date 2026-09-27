@@ -1,14 +1,12 @@
 import { Calculator } from "lucide-react"
 import Link from "next/link"
 
+import { CALCULATORS, FEATURES_LINK } from "@/lib/site-nav"
+
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
-const nav = [
-  { href: "#features", label: "Features" },
-  { href: "#mortgage", label: "Mortgage" },
-  { href: "#compound-interest", label: "Compound interest" },
-]
+const nav = [FEATURES_LINK, ...CALCULATORS]
 
 export function SiteHeader() {
   return (
@@ -31,7 +29,7 @@ export function SiteHeader() {
         </nav>
 
         <Button size="sm" asChild>
-          <Link href="#mortgage">Open calculator</Link>
+          <Link href={CALCULATORS[0].href}>Open calculator</Link>
         </Button>
       </div>
       <Separator />
